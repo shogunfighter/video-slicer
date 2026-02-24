@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Trimmer UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Arena Video Trimmer</h1>
+
+<div id="thumbGrid" class="grid"></div>
+
+<video id="preview" controls></video>
+
+<h3>Trim Range</h3>
+
+<div class="timeline">
+
+  <div id="ruler"></div>
+
+  <div class="range-container">
+    <input type="range" id="startMarker" min="0" max="100" value="0">
+    <input type="range" id="endMarker" min="0" max="100" value="100">
+    <div class="range-highlight" id="rangeHighlight"></div>
+  </div>
+
+  <div class="time-row">
+    <span>Start: <span id="startTimeDisplay">0.00s</span></span>
+    <span>End: <span id="endTimeDisplay">0.00s</span></span>
+  </div>
+
+  <div class="time-controls">
+
+    <div class="time-block">
+      <label>Start Time</label>
+      <div class="time-input-row">
+        <button class="nudge" data-target="start" data-step="-100">-1s</button>
+        <button class="nudge" data-target="start" data-step="-10">-0.1s</button>
+        <button class="nudge" data-target="start" data-step="-1">-0.01s</button>
+
+        <input type="number" id="startInput" step="0.001" value="0.000">
+
+        <button class="nudge" data-target="start" data-step="1">+0.01s</button>
+        <button class="nudge" data-target="start" data-step="10">+0.1s</button>
+        <button class="nudge" data-target="start" data-step="100">+1s</button>
+      </div>
+    </div>
+
+    <div class="time-block">
+      <label>End Time</label>
+      <div class="time-input-row">
+        <button class="nudge" data-target="end" data-step="-100">-1s</button>
+        <button class="nudge" data-target="end" data-step="-10">-0.1s</button>
+        <button class="nudge" data-target="end" data-step="-1">-0.01s</button>
+
+        <input type="number" id="endInput" step="0.001" value="0.000">
+
+        <button class="nudge" data-target="end" data-step="1">+0.01s</button>
+        <button class="nudge" data-target="end" data-step="10">+0.1s</button>
+        <button class="nudge" data-target="end" data-step="100">+1s</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div> <!-- end timeline -->
+
+<div class="encode-options">
+  <label>
+    <input type="checkbox" id="reencodeCheckbox" checked>
+    Re‑encode output (fixes broken trims)
+  </label>
+</div>
+
+<button id="apply">Trim This Video</button>
+
+<div id="toastContainer"></div>
+
+<script src="ui.js"></script>
+</body>
+</html>
