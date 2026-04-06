@@ -145,6 +145,12 @@ endSlider.addEventListener("input", e => {
   video.currentTime = endMs / 1000;
 });
 
+function setEndTime(ms) {
+	endMs = ms;
+	updateAll();
+	video.currentTime = endMs / 1000;
+}
+
 /* NUDGE BUTTONS */
 document.querySelectorAll(".nudge").forEach(btn => {
   btn.addEventListener("click", () => {
